@@ -1,71 +1,27 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://addons/FlyCam/FlyCam.gd" type="Script" id=1]
 [ext_resource path="res://addons/FlyCam/icon.png" type="Texture" id=2]
 
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0, 0, 1, 1 )
+
 [node name="Main" type="Node"]
 
 [node name="FlyCam" type="Camera" parent="."]
-
-_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.43124 )
-projection = 0
-fov = 65.0
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.43124 )
+fov = 45.0
 near = 0.1
-far = 100.0
-keep_aspect = 1
-current = false
-visible_layers = 1048575
-environment = null
-h_offset = 0.0
-v_offset = 0.0
-script/script = ExtResource( 1 )
+script = ExtResource( 1 )
 __meta__ = {
 "_editor_icon": ExtResource( 2 )
 }
-speed = 8
-rot = Vector3( 0, 0, 0 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 20, 20 )
 
-_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 20, 20 )
-layers = 1
-params/enabled = true
-params/editor_only = false
-params/bake_mode = 0
-params/energy = 1.0
-colors/diffuse = Color( 1, 1, 1, 1 )
-colors/specular = Color( 1, 1, 1, 1 )
-shadow/shadow = false
-shadow/darkening = 0.0
-shadow/z_offset = 0.05
-shadow/z_slope_scale = 0.0
-shadow/esm_multiplier = 60.0
-shadow/blur_passes = 1.0
-projector = null
-operator = 0
-shadow/mode = 0
-shadow/max_distance = 0.0
-shadow/split_weight = 0.5
-shadow/zoffset_scale = 2.0
-
-[node name="TestCube" type="TestCube" parent="."]
-
-_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-layers = 1
-geometry/visible = true
-geometry/material_override = null
-geometry/cast_shadow = 1
-geometry/receive_shadows = true
-geometry/range_begin = 0.0
-geometry/range_end = 0.0
-geometry/extra_cull_margin = 0.0
-geometry/billboard = false
-geometry/billboard_y = false
-geometry/depth_scale = false
-geometry/visible_in_all_rooms = false
-geometry/use_baked_light = false
-geometry/baked_light_tex_id = 0
-
-
+[node name="TestCube" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
