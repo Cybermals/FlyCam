@@ -1,6 +1,7 @@
 # FlyCam
 A simple camera that can be moved with the keyboard.
 
+Discontinued in favor of https://github.com/Cybermals/Cybermals-EagleEye
 
 ## Instructions
 1. clone this repo
